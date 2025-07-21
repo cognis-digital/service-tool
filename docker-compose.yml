@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ${DOCKERHUB_USERNAME}/service-tool-backend:${IMAGE_TAG}
+    container_name: service-tool-backend
+    env_file:
+      - backend/.env
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    image: ${DOCKERHUB_USERNAME}/service-tool-frontend:${IMAGE_TAG}
+    container_name: service-tool-frontend
+    ports:
+      - "80:80"
+    restart: always
