@@ -1,5 +1,7 @@
 # service-tool
 
+A dynamic Progressive Web App (PWA) with a React frontend, FastAPI backend, and Supabase database for showcasing and selecting services based on business scale and industry.
+
 ## Prerequisites
 - Docker Desktop (with Docker Engine & Compose)
 - Node.js and npm (for local dev)
@@ -68,6 +70,23 @@ git push -u origin production
 3. Ensure your self-hosted runner is online and has Docker & Compose installed.
 4. On push to `production`, the `deploy.yml` workflow will:
    - Build & push images to Docker Hub
+   - Deploy the frontend to GitHub Pages
+   - Deploy the backend and Supabase services using Docker Compose
+   - Run health checks to verify deployment success
+
+## Recent Bugfixes
+
+### Service Catalog UI
+- Fixed service catalog display issues by correcting the root route in `App.tsx` to use `ServiceCatalogPage` component
+- Updated `ServiceCatalogPage` component to properly use `getServicesByScale` function for service filtering
+- Resolved type mismatch between different `Industry` type definitions in the codebase
+- Added proper handling of null/undefined industry values
+- Improved fallback logic when no services are found for a given business scale
+
+### TypeScript Improvements
+- Added type assertions to resolve conflicts between different module type definitions
+- Updated component props to handle nullable values properly
+- Fixed service data access patterns to ensure proper type safety
    - Run `docker-compose pull && docker-compose up -d`
 
 Enjoy your automated deploy pipeline!

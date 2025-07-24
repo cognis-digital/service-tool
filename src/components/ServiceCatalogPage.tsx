@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store';
+import { getServicesByScale, services as allServices, Industry } from '../data/services';
 import { ArrowRight } from 'lucide-react';
 import { Service } from '../data/services';
 import ServiceCatalog from './ServiceCatalog';
@@ -8,8 +9,7 @@ import ServiceCatalog from './ServiceCatalog';
 function ServiceCatalogPage() {
   const navigate = useNavigate();
   
-  const { 
-    services,
+  const {
     selectedServices,
     businessScale,
     industry,
@@ -17,25 +17,29 @@ function ServiceCatalogPage() {
     calculateTotalPrice
   } = useStore();
 
-  // Filter and recommend services based on scale and industry
+  // Get recommended services for current scale
   const recommendedServices = useMemo(() => {
-    if (!industry || !businessScale || !Array.isArray(services)) return [];
-
-    return services.filter(service => {
-      // Check if service is suitable for the selected scale
-      if (service.recommendedFor && !service.recommendedFor.includes(businessScale)) {
-        return false;
+    // Ensure we have a valid businessScale, default to 'startup' if not set
+    const scale = businessScale || 'startup';
+    
+    // Get services by scale
+    const scaleServices = getServicesByScale(scale);
+    
+    // Fallback to some services if none found
+    if (!scaleServices || scaleServices.length === 0) {
+      console.log('No services found for scale:', scale);
+      // Get first category of services from any scale as fallback
+      const anyScale = Object.keys(allServices)[0];
+      if (anyScale) {
+        const anyCategory = Object.keys(allServices[anyScale])[0];
+        if (anyCategory) {
+          return allServices[anyScale][anyCategory] as Service[];
+        }
       }
-
-      // Check if service has features for the selected industry
-      if (service.industryFeatures && service.industryFeatures[industry]?.length > 0) {
-        return true;
-      }
-
-      // Include service if it's generally recommended for the scale
-      return true;
-    });
-  }, [services, businessScale, industry]);
+    }
+    
+    return scaleServices;
+  }, [businessScale]);
 
   const handleServiceSelect = (serviceId: string) => {
     if (selectedServices.includes(serviceId)) {
@@ -46,7 +50,7 @@ function ServiceCatalogPage() {
   };
 
   const totalPrice = useMemo(() => {
-    return calculateTotalPrice(selectedServices);
+    return calculateTotalPrice();
   }, [calculateTotalPrice, selectedServices]);
 
   return (
@@ -62,7 +66,7 @@ function ServiceCatalogPage() {
             <p className="text-2xl font-bold">${totalPrice}/mo</p>
           </div>
           <button
-            onClick={() => navigate('/checkout')}
+            onClick={() => navigate('/build')}
             disabled={selectedServices.length === 0}
             className={`px-6 py-3 rounded-lg flex items-center space-x-2 ${
               selectedServices.length === 0
@@ -81,7 +85,7 @@ function ServiceCatalogPage() {
           <h2 className="text-xl font-semibold mb-4">Recommended Services</h2>
           <ServiceCatalog 
             services={recommendedServices} 
-            industry={industry} 
+            industry={industry as any} 
             onServiceSelect={handleServiceSelect} 
             selectedServices={selectedServices} 
           />

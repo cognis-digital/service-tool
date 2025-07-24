@@ -3,7 +3,7 @@ import { Service, Industry } from '../data/services';
 
 interface ServiceCatalogProps {
   services: Service[];
-  industry: Industry;
+  industry: Industry | null;
   onServiceSelect: (serviceId: string) => void;
   selectedServices: string[];
 }
