@@ -39,8 +39,13 @@ function PricingBreakdown({
     return Math.round(service.basePrice * getScaleMultiplier() * getIndustryPremium());
   };
 
+  // Flatten nested services object for quick lookup
+  const allServicesArray = Object.values(services).flatMap(scaleObj =>
+    Object.values(scaleObj).flat()
+  ) as Service[];
+
   const selectedServiceDetails = selectedServices.map(id => {
-    const service = services.find(s => s.id === id);
+    const service: any = allServicesArray.find((s: any) => s.id === id);
     return service ? {
       name: service.name,
       price: calculateServicePrice(service),

@@ -25,6 +25,12 @@ export interface Service {
   integrations?: string[];
   compliance?: string[];
   supportLevel?: string;
+  security?: Array<{
+    id: string;
+    name: string;
+    price: number;
+    description?: string;
+  }>;
 }
 
 export interface ServiceCategory {
@@ -184,6 +190,79 @@ export const services: ServiceCategory = {
           ]
         }
       }
+    ],
+    development: [
+      {
+        id: 'personal-website',
+        name: 'Personal Website & Portfolio',
+        basePrice: 1999,
+        description: 'Professional website with portfolio showcase',
+        category: 'development',
+        recommendedFor: ['individual'],
+        supportLevel: 'Email Support',
+        integrations: ['WordPress', 'Squarespace', 'Netlify', 'GitHub Pages'],
+        features: {
+          base: [
+            'Responsive design',
+            'Portfolio gallery',
+            'Contact form',
+            'SEO optimization',
+            'Social media integration',
+            'Blog functionality',
+            'Analytics setup',
+            'Domain & hosting setup'
+          ],
+          addons: [
+            {
+              id: 'e-commerce-basic',
+              name: 'Basic E-commerce',
+              price: 799,
+              description: 'Simple online store functionality',
+              features: ['Product catalog', 'Shopping cart', 'Payment processing']
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Client testimonials', 'Service packages', 'Booking system'],
+          'e-commerce': ['Product showcase', 'Online store', 'Inventory display'],
+          'education': ['Course listings', 'Student resources', 'Learning materials'],
+          'healthcare': ['Patient information', 'Appointment booking', 'Health resources'],
+          'finance': ['Financial planning tools', 'Investment tracking', 'Budget management'],
+          'technology': ['Technical documentation', 'API showcase', 'Developer resources']
+        }
+      }
+    ],
+    consulting: [
+      {
+        id: 'freelancer-business-setup',
+        name: 'Freelancer Business Setup',
+        basePrice: 999,
+        description: 'Complete business setup for freelancers',
+        category: 'consulting',
+        recommendedFor: ['individual'],
+        supportLevel: 'Personal Consultation',
+        integrations: ['Legal templates', 'Accounting tools', 'Project management'],
+        features: {
+          base: [
+            'Business registration guidance',
+            'Contract templates',
+            'Pricing strategy',
+            'Client acquisition plan',
+            'Tax planning basics',
+            'Portfolio development',
+            'Brand identity creation'
+          ],
+          addons: []
+        },
+        industryFeatures: {
+          'freelancer': ['Specialized contracts', 'Industry pricing', 'Network building'],
+          'e-commerce': ['Online selling setup', 'Product sourcing', 'Marketing basics'],
+          'education': ['Course creation', 'Student management', 'Content strategy'],
+          'healthcare': ['Practice setup', 'Patient management', 'Compliance guidance'],
+          'finance': ['Financial planning', 'Investment strategies', 'Risk management'],
+          'technology': ['Tech stack selection', 'Development processes', 'Team building']
+        }
+      }
     ]
   },
   startup: {
@@ -319,6 +398,148 @@ export const services: ServiceCategory = {
             'Virtual classroom protection',
             'Academic integrity tools'
           ]
+        }
+      }
+    ],
+    development: [
+      {
+        id: 'full-stack-web-app',
+        name: 'Full-Stack Web Application',
+        basePrice: 7999,
+        description: 'End-to-end development of a responsive web application',
+        category: 'development',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: '24/7 Development Support',
+        integrations: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+        features: {
+          base: [
+            'Requirements analysis & planning',
+            'UI/UX design & prototyping',
+            'Frontend development (React/Vue/Angular)',
+            'Backend API development',
+            'Database design & optimization',
+            'Authentication & authorization',
+            'Testing & quality assurance',
+            'CI/CD pipeline setup',
+            'Performance optimization',
+            'Documentation & training'
+          ],
+          addons: [
+            {
+              id: 'advanced-analytics',
+              name: 'Advanced Analytics Dashboard',
+              price: 1999,
+              description: 'Real-time analytics and reporting',
+              features: ['Custom dashboards', 'Data visualization', 'Export capabilities']
+            }
+          ]
+        },
+        industryFeatures: {
+          'e-commerce': ['Shopping cart', 'Payment gateway', 'Inventory management'],
+          'technology': ['API documentation', 'Developer portal', 'Webhook support'],
+          'education': ['LMS integration', 'Student portal', 'Grade management'],
+          'healthcare': ['HIPAA compliance', 'Patient portal', 'Appointment system'],
+          'finance': ['Transaction tracking', 'Compliance reporting', 'Audit trails'],
+          'freelancer': ['Client portal', 'Project tracking', 'Invoice generation']
+        }
+      },
+      {
+        id: 'mobile-app-development',
+        name: 'Cross-Platform Mobile App',
+        basePrice: 12999,
+        description: 'Native iOS and Android app development',
+        category: 'development',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Priority Mobile Support',
+        integrations: ['React Native', 'Flutter', 'Firebase', 'App Store Connect'],
+        features: {
+          base: [
+            'iOS & Android development',
+            'Cross-platform compatibility',
+            'Push notifications',
+            'Offline functionality',
+            'App store deployment'
+          ],
+          addons: []
+        },
+        industryFeatures: {
+          'e-commerce': ['Mobile commerce', 'Barcode scanning', 'Location-based offers'],
+          'technology': ['Developer tools', 'API testing', 'Code sharing'],
+          'education': ['Offline learning', 'Progress tracking', 'Interactive content'],
+          'healthcare': ['Telemedicine', 'Health tracking', 'Medication reminders'],
+          'finance': ['Mobile banking', 'Biometric auth', 'Transaction alerts'],
+          'freelancer': ['Time tracking', 'Expense management', 'Client communication']
+        }
+      },
+      {
+        id: 'web3-dapp-development',
+        name: 'Web3 DApp Development',
+        basePrice: 15999,
+        description: 'Decentralized application with smart contracts',
+        category: 'development',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Web3 Expert Support',
+        integrations: ['Ethereum', 'Polygon', 'Solidity', 'IPFS', 'MetaMask'],
+        features: {
+          base: [
+            'Smart contract development',
+            'Web3 frontend integration',
+            'Wallet connection (MetaMask, WalletConnect)',
+            'IPFS storage integration',
+            'Gas optimization',
+            'Security audit preparation',
+            'Testnet deployment',
+            'Mainnet deployment',
+            'Documentation & guides',
+            'Community setup'
+          ],
+          addons: [
+            {
+              id: 'nft-marketplace',
+              name: 'NFT Marketplace Features',
+              price: 4999,
+              description: 'Complete NFT trading platform',
+              features: ['Minting interface', 'Trading functionality', 'Royalty system']
+            }
+          ]
+        },
+        industryFeatures: {
+          'e-commerce': ['Crypto payments', 'Loyalty tokens', 'Supply chain tracking'],
+          'technology': ['Developer DAO', 'Code bounties', 'Decentralized hosting'],
+          'education': ['Credential verification', 'Learning tokens', 'Decentralized courses'],
+          'healthcare': ['Medical records', 'Drug traceability', 'Research data'],
+          'finance': ['DeFi protocols', 'Lending platforms', 'Insurance products'],
+          'freelancer': ['Decentralized freelancing', 'Escrow contracts', 'Reputation system']
+        }
+      }
+    ],
+    consulting: [
+      {
+        id: 'digital-transformation',
+        name: 'Digital Transformation Consulting',
+        basePrice: 4999,
+        description: 'Strategic guidance for digital modernization',
+        category: 'consulting',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Executive Consulting',
+        integrations: ['Strategy frameworks', 'Assessment tools', 'Implementation roadmaps'],
+        features: {
+          base: [
+            'Current state assessment',
+            'Digital strategy development',
+            'Technology roadmap creation',
+            'Change management planning',
+            'ROI analysis & projections'
+          ],
+          addons: []
+        },
+        industryFeatures: {
+          'e-commerce': ['Omnichannel strategy', 'Customer journey mapping', 'Conversion optimization'],
+          'technology': ['DevOps transformation', 'Cloud migration', 'Agile adoption'],
+          'education': ['EdTech integration', 'Remote learning', 'Student engagement'],
+          'healthcare': ['Telehealth strategy', 'EHR optimization', 'Patient experience'],
+          'finance': ['Fintech integration', 'Regulatory compliance', 'Customer onboarding'],
+          'freelancer': ['Personal branding', 'Client acquisition', 'Service optimization']
         }
       }
     ]

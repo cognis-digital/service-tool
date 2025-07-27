@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
 name: Deploy Service Tool
 
 on:
@@ -6,82 +5,74 @@ on:
     branches:
       - production
 
-env:
-  IMAGE_TAG: ${{ github.sha }}
-  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-
 jobs:
   deploy:
     runs-on: [self-hosted]
+    env:
+      IMAGE_TAG: ${{ github.sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create backend .env
+
+
+      # Define image names as outputs
+      - name: Set Docker image names
+        id: set-image-names
         run: |
-          cat <<EOF > backend/.env
-          SUPABASE_URL=${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}
-          EOF
+          echo "backend_image=service-tool-backend:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
+          echo "frontend_image=service-tool-frontend:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+      # Build backend image
       - name: Build backend image
         run: |
           docker build \
             --file backend/Dockerfile \
-            --tag $DOCKERHUB_USERNAME/service-tool-backend:$IMAGE_TAG \
+            --tag ${{ steps.set-image-names.outputs.backend_image }} \
             .
 
+      # Build frontend image
       - name: Build frontend image
         run: |
           docker build \
             --file Dockerfile.frontend \
-            --build-arg VITE_SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
-            --build-arg VITE_SUPABASE_ANON_KEY=${{ secrets.SUPABASE_KEY }} \
-            --tag $DOCKERHUB_USERNAME/service-tool-frontend:$IMAGE_TAG \
+            --tag ${{ steps.set-image-names.outputs.frontend_image }} \
             .
 
-      - name: Push backend image
-        run: docker push $DOCKERHUB_USERNAME/service-tool-backend:$IMAGE_TAG
 
-      - name: Push frontend image
-        run: docker push $DOCKERHUB_USERNAME/service-tool-frontend:$IMAGE_TAG
-
+      # Deploy with docker-compose
       - name: Deploy stack with docker-compose
         run: |
           docker-compose pull
           docker-compose up -d
 
+      # Health check backend
       - name: Health check backend
         run: |
           sleep 10
           curl -f http://localhost/api/ || (echo "Backend health check failed" && exit 1)
 
+      # Health check frontend
       - name: Health check frontend
         run: |
           sleep 10
           curl -f http://localhost/ || (echo "Frontend health check failed" && exit 1)
 
-      - name: Deploy to GitHub Pages
+      # Setup Node.js for GitHub Pages deployment
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
       
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
         
+      # Build for GitHub Pages
       - name: Build for GitHub Pages
         run: npm run build
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_KEY }}
           
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

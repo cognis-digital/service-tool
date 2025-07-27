@@ -1,88 +1,155 @@
 export const techStackOptions = {
+  languages: [
+    { id: 'javascript', name: 'JavaScript', description: 'Versatile scripting language', price: 0 },
+    { id: 'typescript', name: 'TypeScript', description: 'Typed JavaScript superset', price: 500 },
+    { id: 'python', name: 'Python', description: 'High-level programming language', price: 300 },
+    { id: 'go', name: 'Go', description: 'Fast, compiled language by Google', price: 800 },
+    { id: 'rust', name: 'Rust', description: 'Memory-safe systems programming', price: 1200 },
+    { id: 'java', name: 'Java', description: 'Enterprise-grade OOP language', price: 600 },
+    { id: 'csharp', name: 'C#', description: 'Microsoft .NET language', price: 700 },
+    { id: 'php', name: 'PHP', description: 'Server-side scripting language', price: 200 },
+    { id: 'ruby', name: 'Ruby', description: 'Dynamic, object-oriented language', price: 400 },
+    { id: 'swift', name: 'Swift', description: 'Apple iOS/macOS development', price: 900 },
+    { id: 'kotlin', name: 'Kotlin', description: 'Modern JVM language', price: 700 },
+    { id: 'dart', name: 'Dart', description: 'Google Flutter language', price: 600 },
+    { id: 'solidity', name: 'Solidity', description: 'Ethereum smart contract language', price: 1500 }
+  ],
   frontend: [
-    {
-      id: 'react',
-      name: 'React',
-      description: 'Modern UI development with React ecosystem',
-      features: ['Component-based', 'Virtual DOM', 'Large ecosystem'],
-      price: 0,
-      frameworks: ['Next.js', 'Remix', 'Gatsby']
-    },
-    {
-      id: 'vue',
-      name: 'Vue.js',
-      description: 'Progressive JavaScript framework',
-      features: ['Component-based', 'Reactive', 'Easy learning curve'],
-      price: 0,
-      frameworks: ['Nuxt.js', 'Vite', 'Quasar']
-    },
-    {
-      id: 'svelte',
-      name: 'Svelte',
-      description: 'Compile-time framework with no runtime',
-      features: ['No virtual DOM', 'True reactivity', 'Small bundle size'],
-      price: 0,
-      frameworks: ['SvelteKit', 'Elder.js']
-    }
+    { id: 'react', name: 'React', description: 'Component-based UI library', price: 0 },
+    { id: 'vue', name: 'Vue.js', description: 'Progressive JavaScript framework', price: 200 },
+    { id: 'angular', name: 'Angular', description: 'Full-featured TypeScript framework', price: 800 },
+    { id: 'svelte', name: 'Svelte', description: 'Compile-time optimized framework', price: 600 },
+    { id: 'nextjs', name: 'Next.js', description: 'React production framework', price: 500 },
+    { id: 'nuxtjs', name: 'Nuxt.js', description: 'Vue.js production framework', price: 600 },
+    { id: 'gatsby', name: 'Gatsby', description: 'Static site generator for React', price: 400 },
+    { id: 'astro', name: 'Astro', description: 'Modern static site builder', price: 500 },
+    { id: 'remix', name: 'Remix', description: 'Full-stack React framework', price: 700 },
+    { id: 'sveltekit', name: 'SvelteKit', description: 'Svelte application framework', price: 600 },
+    { id: 'solidjs', name: 'Solid.js', description: 'Reactive JavaScript library', price: 400 },
+    { id: 'alpinejs', name: 'Alpine.js', description: 'Lightweight JavaScript framework', price: 100 }
   ],
   backend: [
-    {
-      id: 'node',
-      name: 'Node.js',
-      description: 'JavaScript runtime for server-side development',
-      features: ['Event-driven', 'Non-blocking I/O', 'Large ecosystem'],
-      price: 0,
-      frameworks: ['Express', 'NestJS', 'Fastify']
-    },
-    {
-      id: 'python',
-      name: 'Python',
-      description: 'Versatile language for backend development',
-      features: ['Easy to learn', 'Rich libraries', 'AI/ML support'],
-      price: 0,
-      frameworks: ['FastAPI', 'Django', 'Flask']
-    },
-    {
-      id: 'go',
-      name: 'Go',
-      description: 'High-performance systems programming',
-      features: ['Fast compilation', 'Built-in concurrency', 'Static typing'],
-      price: 0,
-      frameworks: ['Gin', 'Echo', 'Fiber']
-    }
+    { id: 'nodejs', name: 'Node.js', description: 'JavaScript runtime environment', price: 0 },
+    { id: 'express', name: 'Express.js', description: 'Minimal Node.js web framework', price: 200 },
+    { id: 'fastify', name: 'Fastify', description: 'Fast Node.js web framework', price: 400 },
+    { id: 'nestjs', name: 'NestJS', description: 'Enterprise Node.js framework', price: 800 },
+    { id: 'django', name: 'Django', description: 'High-level Python web framework', price: 600 },
+    { id: 'flask', name: 'Flask', description: 'Lightweight Python web framework', price: 300 },
+    { id: 'fastapi', name: 'FastAPI', description: 'Modern Python API framework', price: 500 },
+    { id: 'rails', name: 'Ruby on Rails', description: 'Full-stack Ruby framework', price: 700 },
+    { id: 'laravel', name: 'Laravel', description: 'Elegant PHP web framework', price: 500 },
+    { id: 'spring', name: 'Spring Boot', description: 'Java enterprise framework', price: 900 },
+    { id: 'dotnet', name: '.NET Core', description: 'Cross-platform .NET framework', price: 800 },
+    { id: 'gin', name: 'Gin', description: 'Go web framework', price: 600 },
+    { id: 'fiber', name: 'Fiber', description: 'Express-inspired Go framework', price: 500 }
   ],
   mobile: [
-    {
-      id: 'react-native',
-      name: 'React Native',
-      description: 'Cross-platform mobile development with React',
-      features: ['Native components', 'Hot reloading', 'Large community'],
-      price: 0,
-      frameworks: ['Expo', 'React Native CLI']
-    },
-    {
-      id: 'flutter',
-      name: 'Flutter',
-      description: 'Google\'s UI toolkit for mobile, web, and desktop',
-      features: ['Single codebase', 'Custom widgets', 'Native performance'],
-      price: 0,
-      frameworks: ['Flutter SDK']
-    }
+    { id: 'react-native', name: 'React Native', description: 'Cross-platform mobile development', price: 500 },
+    { id: 'flutter', name: 'Flutter', description: 'Google cross-platform framework', price: 600 },
+    { id: 'ionic', name: 'Ionic', description: 'Hybrid mobile app framework', price: 400 },
+    { id: 'xamarin', name: 'Xamarin', description: 'Microsoft cross-platform framework', price: 700 },
+    { id: 'cordova', name: 'Apache Cordova', description: 'Mobile app development platform', price: 300 },
+    { id: 'capacitor', name: 'Capacitor', description: 'Native bridge for web apps', price: 400 },
+    { id: 'expo', name: 'Expo', description: 'React Native development platform', price: 500 },
+    { id: 'nativescript', name: 'NativeScript', description: 'Native mobile development', price: 600 }
   ],
-  database: [
-    {
-      id: 'postgresql',
-      name: 'PostgreSQL',
-      description: 'Advanced open-source relational database',
-      features: ['ACID compliance', 'JSON support', 'Extensions'],
-      price: 0
-    },
-    {
-      id: 'mongodb',
-      name: 'MongoDB',
-      description: 'NoSQL document database',
-      features: ['Flexible schema', 'Horizontal scaling', 'Rich queries'],
-      price: 0
-    }
+  buildTools: [
+    { id: 'vite', name: 'Vite', description: 'Fast build tool', price: 0 },
+    { id: 'webpack', name: 'Webpack', description: 'Module bundler', price: 200 },
+    { id: 'rollup', name: 'Rollup', description: 'JavaScript module bundler', price: 300 },
+    { id: 'parcel', name: 'Parcel', description: 'Zero-config build tool', price: 100 },
+    { id: 'esbuild', name: 'esbuild', description: 'Extremely fast bundler', price: 400 },
+    { id: 'turbo', name: 'Turbo', description: 'High-performance build system', price: 600 },
+    { id: 'snowpack', name: 'Snowpack', description: 'Lightning-fast build tool', price: 200 }
+  ],
+  databases: [
+    { id: 'supabase', name: 'Supabase', description: 'Open source Firebase alternative', price: 300 },
+    { id: 'firebase', name: 'Firebase', description: 'Google backend platform', price: 400 },
+    { id: 'postgresql', name: 'PostgreSQL', description: 'Advanced relational database', price: 500 },
+    { id: 'mysql', name: 'MySQL', description: 'Popular relational database', price: 400 },
+    { id: 'mongodb', name: 'MongoDB', description: 'NoSQL document database', price: 600 },
+    { id: 'redis', name: 'Redis', description: 'In-memory data store', price: 300 },
+    { id: 'sqlite', name: 'SQLite', description: 'Lightweight embedded database', price: 0 },
+    { id: 'dynamodb', name: 'DynamoDB', description: 'AWS NoSQL database', price: 700 },
+    { id: 'cassandra', name: 'Cassandra', description: 'Distributed NoSQL database', price: 900 },
+    { id: 'neo4j', name: 'Neo4j', description: 'Graph database', price: 800 },
+    { id: 'planetscale', name: 'PlanetScale', description: 'Serverless MySQL platform', price: 500 },
+    { id: 'cockroachdb', name: 'CockroachDB', description: 'Distributed SQL database', price: 800 }
+  ],
+  styling: [
+    { id: 'tailwind', name: 'Tailwind CSS', description: 'Utility-first CSS framework', price: 0 },
+    { id: 'bootstrap', name: 'Bootstrap', description: 'Popular CSS framework', price: 0 },
+    { id: 'chakra', name: 'Chakra UI', description: 'React component library', price: 200 },
+    { id: 'mui', name: 'Material-UI', description: 'React Material Design', price: 300 },
+    { id: 'antd', name: 'Ant Design', description: 'Enterprise UI library', price: 400 },
+    { id: 'bulma', name: 'Bulma', description: 'Modern CSS framework', price: 100 },
+    { id: 'styled-components', name: 'Styled Components', description: 'CSS-in-JS library', price: 200 },
+    { id: 'emotion', name: 'Emotion', description: 'CSS-in-JS library', price: 200 },
+    { id: 'sass', name: 'Sass', description: 'CSS preprocessor', price: 100 },
+    { id: 'less', name: 'Less', description: 'CSS preprocessor', price: 100 }
+  ],
+  cloud: [
+    { id: 'aws', name: 'Amazon Web Services', description: 'Comprehensive cloud platform', price: 800 },
+    { id: 'gcp', name: 'Google Cloud Platform', description: 'Google cloud services', price: 700 },
+    { id: 'azure', name: 'Microsoft Azure', description: 'Microsoft cloud platform', price: 750 },
+    { id: 'vercel', name: 'Vercel', description: 'Frontend deployment platform', price: 200 },
+    { id: 'netlify', name: 'Netlify', description: 'Web development platform', price: 150 },
+    { id: 'railway', name: 'Railway', description: 'Infrastructure platform', price: 300 },
+    { id: 'render', name: 'Render', description: 'Cloud application platform', price: 250 },
+    { id: 'digitalocean', name: 'DigitalOcean', description: 'Developer cloud platform', price: 400 },
+    { id: 'linode', name: 'Linode', description: 'Cloud computing platform', price: 350 },
+    { id: 'heroku', name: 'Heroku', description: 'Platform as a service', price: 300 }
+  ],
+  integrations: [
+    { id: 'stripe', name: 'Stripe', description: 'Payment processing platform', price: 600 },
+    { id: 'clerk', name: 'Clerk', description: 'Authentication & user management', price: 400 },
+    { id: 'auth0', name: 'Auth0', description: 'Identity platform', price: 500 },
+    { id: 'figma', name: 'Figma', description: 'Design collaboration tool', price: 200 },
+    { id: 'github', name: 'GitHub', description: 'Code hosting platform', price: 100 },
+    { id: 'gitlab', name: 'GitLab', description: 'DevOps platform', price: 300 },
+    { id: 'notion', name: 'Notion', description: 'Workspace platform', price: 250 },
+    { id: 'airtable', name: 'Airtable', description: 'Database platform', price: 350 },
+    { id: 'sendgrid', name: 'SendGrid', description: 'Email delivery service', price: 300 },
+    { id: 'twilio', name: 'Twilio', description: 'Communications platform', price: 500 },
+    { id: 'algolia', name: 'Algolia', description: 'Search platform', price: 400 },
+    { id: 'contentful', name: 'Contentful', description: 'Headless CMS', price: 450 },
+    { id: 'sanity', name: 'Sanity', description: 'Structured content platform', price: 400 },
+    { id: 'strapi', name: 'Strapi', description: 'Open source CMS', price: 200 }
+  ],
+  web3: [
+    { id: 'web3js', name: 'web3.js', description: 'Ethereum JavaScript API', price: 800 },
+    { id: 'ethers', name: 'ethers.js', description: 'Ethereum library', price: 700 },
+    { id: 'wagmi', name: 'Wagmi', description: 'React hooks for Ethereum', price: 600 },
+    { id: 'rainbowkit', name: 'RainbowKit', description: 'Wallet connection library', price: 500 },
+    { id: 'web3modal', name: 'Web3Modal', description: 'Multi-wallet connection', price: 400 },
+    { id: 'moralis', name: 'Moralis SDK', description: 'Web3 development platform', price: 900 },
+    { id: 'alchemy', name: 'Alchemy SDK', description: 'Blockchain development platform', price: 800 },
+    { id: 'thirdweb', name: 'thirdweb', description: 'Web3 development framework', price: 700 },
+    { id: 'hardhat', name: 'Hardhat', description: 'Ethereum development environment', price: 600 },
+    { id: 'truffle', name: 'Truffle', description: 'Ethereum development suite', price: 650 },
+    { id: 'foundry', name: 'Foundry', description: 'Ethereum development toolkit', price: 700 },
+    { id: 'openzeppelin', name: 'OpenZeppelin', description: 'Smart contract library', price: 800 },
+    { id: 'chainlink', name: 'Chainlink', description: 'Decentralized oracle network', price: 1000 },
+    { id: 'ipfs', name: 'IPFS', description: 'Distributed file system', price: 500 },
+    { id: 'arweave', name: 'Arweave', description: 'Permanent data storage', price: 600 },
+    { id: 'polygon', name: 'Polygon SDK', description: 'Ethereum scaling solution', price: 700 }
+  ],
+  testing: [
+    { id: 'jest', name: 'Jest', description: 'JavaScript testing framework', price: 200 },
+    { id: 'vitest', name: 'Vitest', description: 'Vite-native testing framework', price: 250 },
+    { id: 'cypress', name: 'Cypress', description: 'End-to-end testing', price: 400 },
+    { id: 'playwright', name: 'Playwright', description: 'Web testing framework', price: 450 },
+    { id: 'testing-library', name: 'Testing Library', description: 'Simple testing utilities', price: 150 },
+    { id: 'storybook', name: 'Storybook', description: 'Component development tool', price: 300 },
+    { id: 'chromatic', name: 'Chromatic', description: 'Visual testing platform', price: 350 }
+  ],
+  monitoring: [
+    { id: 'sentry', name: 'Sentry', description: 'Error tracking platform', price: 300 },
+    { id: 'datadog', name: 'Datadog', description: 'Monitoring & analytics', price: 600 },
+    { id: 'newrelic', name: 'New Relic', description: 'Application monitoring', price: 550 },
+    { id: 'logflare', name: 'Logflare', description: 'Log management', price: 250 },
+    { id: 'mixpanel', name: 'Mixpanel', description: 'Product analytics', price: 400 },
+    { id: 'amplitude', name: 'Amplitude', description: 'Digital analytics', price: 450 },
+    { id: 'hotjar', name: 'Hotjar', description: 'User behavior analytics', price: 300 }
   ]
 };

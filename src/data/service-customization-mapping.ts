@@ -1,6 +1,25 @@
 import { ServiceCategory, Industry, BusinessScale } from '../types';
 
 export const serviceCustomizationMap = {
+  // Mapping for security packages – reuse generic web-app options for now
+  'startup-security-package': {
+    design: ['minimal', 'modern'],
+    tech: {
+      backend: ['node'],
+      database: ['postgresql']
+    },
+    features: {
+      individual: ['dns-protection', 'basic-vpn'],
+      startup: ['dns-protection', 'basic-vpn', 'cloud-security-monitor'],
+      'small-business': ['dns-protection', 'basic-vpn', 'compliance-dashboard'],
+      enterprise: ['dns-protection', 'basic-vpn', 'red-team']
+    },
+    security: ['audit', 'monitoring'],
+    integrations: {
+      authentication: ['auth0'],
+      storage: ['aws-s3']
+    }
+  },
   'web-app': {
     design: ['minimal', 'modern', 'premium'],
     tech: {
@@ -96,18 +115,42 @@ export const getAvailableCustomizations = (
   scale: BusinessScale,
   industry?: Industry
 ) => {
-  const serviceMap = serviceCustomizationMap[serviceId as keyof typeof serviceCustomizationMap];
-  if (!serviceMap) return null;
-
-  return {
-    design: serviceMap.design || [],
-    tech: serviceMap.tech || {},
-    features: serviceMap.features?.[scale] || [],
-    industryFeatures: industry ? serviceMap.industryFeatures?.[industry] || [] : [],
-    integrations: serviceMap.integrations || {},
-    platforms: serviceMap.platforms || [],
-    security: serviceMap.security || []
-  };
+  try {
+    console.log(`Getting customizations for service: ${serviceId}, scale: ${scale}, industry: ${industry || 'none'}`);
+    
+    if (!serviceId) {
+      console.error('No serviceId provided to getAvailableCustomizations');
+      return null;
+    }
+    
+    const serviceMap = serviceCustomizationMap[serviceId as keyof typeof serviceCustomizationMap];
+    if (!serviceMap) {
+      console.error(`No customization mapping found for service: ${serviceId}`);
+      return null;
+    }
+    
+    // Validate scale
+    if (!scale) {
+      console.error('No scale provided to getAvailableCustomizations');
+      scale = 'startup'; // Default to startup if not provided
+    }
+    
+    // Create a safe result object with proper type checking for each property
+    return {
+      design: 'design' in serviceMap ? (serviceMap.design as string[] || []) : [],
+      tech: 'tech' in serviceMap ? (serviceMap.tech as Record<string, string[]> || {}) : {},
+      features: serviceMap.features && scale in serviceMap.features ? 
+        (serviceMap.features[scale as keyof typeof serviceMap.features] as string[] || []) : [],
+      industryFeatures: industry && serviceMap.industryFeatures && industry in serviceMap.industryFeatures ? 
+        (serviceMap.industryFeatures[industry as keyof typeof serviceMap.industryFeatures] as string[] || []) : [],
+      integrations: 'integrations' in serviceMap ? (serviceMap.integrations as Record<string, string[]> || {}) : {},
+      platforms: 'platforms' in serviceMap ? (serviceMap.platforms as string[] || []) : [],
+      security: 'security' in serviceMap ? (serviceMap.security as string[] || []) : []
+    };
+  } catch (error) {
+    console.error('Error in getAvailableCustomizations:', error);
+    return null;
+  }
 };
 
 export const getServiceDependencies = (serviceId: string) => {
