@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://cognis-digital.github.io/service-tool/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
