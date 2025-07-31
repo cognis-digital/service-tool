@@ -87,7 +87,7 @@ export const services: ServiceCategory = {
             {
               id: 'yubikey-personal',
               name: 'YubiKey Personal',
-              price: 49,
+              price: 80,
               description: 'Hardware security key for 2FA',
               features: [
                 'Physical security key',
@@ -266,6 +266,322 @@ export const services: ServiceCategory = {
     ]
   },
   startup: {
+    automation: [
+      {
+        id: 'workflow-automation',
+        name: 'n8n Workflow Automation',
+        basePrice: 3499,
+        description: 'Powerful workflow automation platform for business processes',
+        category: 'automation',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Business Hours Support',
+        integrations: [
+          'CRM systems',
+          'Project management tools',
+          'Communication platforms',
+          'Marketing automation',
+          'Data storage solutions'
+        ],
+        features: {
+          base: [
+            'Visual Workflow Builder',
+            '100+ App Integrations',
+            'Custom Triggers & Webhooks',
+            'Error Handling & Retries',
+            'Scheduled Workflows',
+            'Conditional Logic',
+            'Data Transformation Tools',
+            'Custom Functions Support'
+          ],
+          addons: [
+            {
+              id: 'advanced-workflows',
+              name: 'Advanced Workflows Package',
+              price: 1799,
+              description: 'Enterprise-grade workflow capabilities',
+              features: [
+                'Complex branching logic',
+                'Advanced error handling',
+                'Custom code execution',
+                'Nested workflows',
+                'Version control'
+              ]
+            },
+            {
+              id: 'workflow-templates',
+              name: 'Industry Workflow Templates',
+              price: 999,
+              description: 'Pre-built workflows for common business scenarios',
+              features: [
+                'Lead nurturing workflows',
+                'Customer onboarding',
+                'Approval processes',
+                'Data synchronization',
+                'Reporting automation'
+              ]
+            },
+            {
+              id: 'enterprise-connections',
+              name: 'Enterprise Connections',
+              price: 1499,
+              description: 'Connect to enterprise systems and databases',
+              features: [
+                'ERP integration',
+                'Legacy system connectors',
+                'Database direct access',
+                'Custom API builders',
+                'Secure credential handling'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Client onboarding', 'Invoice automation', 'Project tracking'],
+          'e-commerce': ['Order processing', 'Inventory updates', 'Customer communications'],
+          'education': ['Student enrollment', 'Assignment distribution', 'Grading workflows'],
+          'healthcare': ['Patient scheduling', 'Insurance verification', 'Compliance reporting'],
+          'finance': ['Transaction processing', 'Compliance workflows', 'Reporting automation'],
+          'technology': ['DevOps automation', 'Testing workflows', 'Deployment pipelines']
+        }
+      }
+    ],
+    crm: [
+      {
+        id: 'crm-platform',
+        name: 'Comprehensive CRM Platform',
+        basePrice: 4999,
+        description: 'Complete customer relationship management solution',
+        category: 'crm',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Priority Business Support',
+        integrations: [
+          'Email marketing platforms',
+          'Communication tools',
+          'Payment processors',
+          'Social media platforms',
+          'Analytics tools'
+        ],
+        features: {
+          base: [
+            'Contact Management',
+            'Deal Pipeline',
+            'Email Integration',
+            'Task Management',
+            'Customer Analytics',
+            'Sales Forecasting',
+            'Mobile Access',
+            'Document Storage'
+          ],
+          addons: [
+            {
+              id: 'marketing-automation',
+              name: 'Marketing Automation Suite',
+              price: 1999,
+              description: 'Advanced marketing tools for lead nurturing',
+              features: [
+                'Email campaign builder',
+                'Landing page creator',
+                'Lead scoring',
+                'A/B testing',
+                'Customer journey mapping'
+              ]
+            },
+            {
+              id: 'sales-intelligence',
+              name: 'Sales Intelligence Tools',
+              price: 1699,
+              description: 'AI-powered sales insights and recommendations',
+              features: [
+                'Deal likelihood prediction',
+                'Next best action recommendations',
+                'Competitor intelligence',
+                'Sales coaching insights',
+                'Pipeline analytics'
+              ]
+            },
+            {
+              id: 'service-desk',
+              name: 'Customer Service Desk',
+              price: 1499,
+              description: 'Support ticket management and service automation',
+              features: [
+                'Ticket routing',
+                'SLA management',
+                'Knowledge base',
+                'Customer satisfaction tracking',
+                'Service automation'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Client project tracking', 'Proposal templates', 'Time tracking'],
+          'e-commerce': ['Customer purchase history', 'Product recommendations', 'Loyalty program'],
+          'education': ['Student enrollment tracking', 'Course management', 'Alumni relations'],
+          'healthcare': ['Patient relationship management', 'Appointment scheduling', 'Follow-up automation'],
+          'finance': ['Client portfolio tracking', 'Investment opportunities', 'Financial planning tools'],
+          'technology': ['User onboarding', 'Feature request tracking', 'Customer success monitoring']
+        }
+      }
+    ],
+    api: [
+      {
+        id: 'api-integration-platform',
+        name: 'API Integration Platform',
+        basePrice: 3999,
+        description: 'Comprehensive API management and integration solution',
+        category: 'api',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: 'Technical Support with SLA',
+        integrations: [
+          'Cloud platforms',
+          'Database systems',
+          'Analytics tools',
+          'SaaS applications',
+          'Legacy systems'
+        ],
+        features: {
+          base: [
+            'API Gateway',
+            'Visual Integration Builder',
+            'Authentication Management',
+            'Rate Limiting',
+            'Logging & Monitoring',
+            'Data Transformation',
+            'Request/Response Validation',
+            'Error Handling'
+          ],
+          addons: [
+            {
+              id: 'developer-portal',
+              name: 'Developer Portal',
+              price: 1499,
+              description: 'Self-service portal for API documentation and testing',
+              features: [
+                'Interactive API documentation',
+                'API key management',
+                'Usage analytics',
+                'Developer onboarding',
+                'Code samples generator'
+              ]
+            },
+            {
+              id: 'industry-connectors',
+              name: 'Industry API Connectors',
+              price: 1999,
+              description: 'Pre-built connectors for industry-specific systems',
+              features: [
+                'Healthcare system integrations',
+                'Financial services connectors',
+                'Retail & e-commerce APIs',
+                'Education platform connectors',
+                'Manufacturing system APIs'
+              ]
+            },
+            {
+              id: 'advanced-security',
+              name: 'Advanced API Security',
+              price: 2199,
+              description: 'Enterprise-grade security features for APIs',
+              features: [
+                'OAuth 2.0 & OpenID Connect',
+                'Threat protection',
+                'Data encryption',
+                'Access control policies',
+                'Security auditing'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Client system integrations', 'Service automation', 'Reporting APIs'],
+          'e-commerce': ['Shopping cart integration', 'Payment gateway APIs', 'Inventory synchronization'],
+          'education': ['Learning management systems', 'Student information APIs', 'Content delivery'],
+          'healthcare': ['EHR integration', 'Patient data exchange', 'Billing system connections'],
+          'finance': ['Banking APIs', 'Payment processing', 'Financial data aggregation'],
+          'technology': ['SaaS platform integration', 'User authentication', 'Data synchronization']
+        }
+      }
+    ],
+    monitoring: [
+      {
+        id: 'automated-alert-system',
+        name: 'Intelligent Alert & Monitoring System',
+        basePrice: 2999,
+        description: 'Comprehensive monitoring and alert platform for business systems',
+        category: 'monitoring',
+        recommendedFor: ['startup', 'small-business'],
+        supportLevel: '24/7 Technical Support',
+        integrations: [
+          'Communication platforms',
+          'Ticketing systems',
+          'Infrastructure monitoring',
+          'Business intelligence tools',
+          'Incident management'
+        ],
+        features: {
+          base: [
+            'Real-time Monitoring Dashboard',
+            'Multi-channel Alerts (Email, SMS, Push)',
+            'Custom Alert Rules',
+            'Scheduled Reports',
+            'Threshold-based Triggers',
+            'Alert Escalation Policies',
+            'Incident Response Workflow',
+            'Status Page Integration'
+          ],
+          addons: [
+            {
+              id: 'ai-anomaly-detection',
+              name: 'AI Anomaly Detection',
+              price: 1699,
+              description: 'Machine learning-based anomaly detection system',
+              features: [
+                'Pattern recognition',
+                'Predictive alerting',
+                'Behavioral analysis',
+                'Automated root cause analysis',
+                'Learning algorithms'
+              ]
+            },
+            {
+              id: 'business-metrics',
+              name: 'Business Metrics Monitoring',
+              price: 1299,
+              description: 'Monitor KPIs and business metrics with alerts',
+              features: [
+                'KPI dashboard',
+                'Goal tracking',
+                'Custom business metrics',
+                'Performance analytics',
+                'Executive reports'
+              ]
+            },
+            {
+              id: 'compliance-monitoring',
+              name: 'Compliance Monitoring Suite',
+              price: 1899,
+              description: 'Monitor and alert on compliance-related metrics',
+              features: [
+                'Regulatory compliance checks',
+                'Audit trail',
+                'Policy enforcement',
+                'Compliance reporting',
+                'Risk assessment'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Project deadline alerts', 'Client communication monitoring', 'Billing reminders'],
+          'e-commerce': ['Inventory alerts', 'Sales performance monitoring', 'Customer service metrics'],
+          'education': ['Student performance alerts', 'Attendance monitoring', 'Deadline tracking'],
+          'healthcare': ['Patient monitoring alerts', 'Staff scheduling', 'Regulatory compliance'],
+          'finance': ['Market change alerts', 'Transaction monitoring', 'Compliance violations'],
+          'technology': ['System performance', 'Error monitoring', 'Deployment alerts']
+        }
+      }
+    ],
     security: [
       {
         id: 'startup-security-package',
@@ -298,8 +614,8 @@ export const services: ServiceCategory = {
             {
               id: 'yubikey-team',
               name: 'YubiKey Team Pack',
-              price: 199,
-              description: '5 YubiKeys for team members',
+              price: 400,
+              description: '5 YubiKeys for team members ($80 each)',
               features: [
                 'Enterprise security keys',
                 'Team management portal',
@@ -545,6 +861,322 @@ export const services: ServiceCategory = {
     ]
   },
   'small-business': {
+    crm: [
+      {
+        id: 'enterprise-crm-solution',
+        name: 'Enterprise CRM Solution',
+        basePrice: 8999,
+        description: 'Advanced CRM platform with enterprise-grade features',
+        category: 'crm',
+        recommendedFor: ['small-business', 'enterprise'],
+        supportLevel: 'Dedicated Account Manager',
+        integrations: [
+          'ERP systems',
+          'Business intelligence',
+          'Marketing platforms',
+          'Support systems',
+          'Custom business applications'
+        ],
+        features: {
+          base: [
+            'Multi-department CRM',
+            'Advanced Workflow Automation',
+            'Enterprise Analytics',
+            'Territory Management',
+            'Forecasting Engine',
+            'Custom Object Creation',
+            'Advanced Security Controls',
+            'API Access & Custom Integration'
+          ],
+          addons: [
+            {
+              id: 'ai-sales-assistant',
+              name: 'AI Sales Assistant',
+              price: 3999,
+              description: 'AI-powered sales intelligence and automation',
+              features: [
+                'Predictive lead scoring',
+                'Conversation intelligence',
+                'Opportunity insights',
+                'Automated follow-ups',
+                'Sales coaching'
+              ]
+            },
+            {
+              id: 'advanced-analytics',
+              name: 'Advanced Analytics Platform',
+              price: 4999,
+              description: 'Business intelligence tools for CRM data',
+              features: [
+                'Custom dashboards',
+                'Predictive analytics',
+                'Data visualization',
+                'Custom reporting',
+                'Data integration tools'
+              ]
+            },
+            {
+              id: 'industry-crm',
+              name: 'Industry-Specific CRM Module',
+              price: 3499,
+              description: 'Specialized CRM features for your industry',
+              features: [
+                'Industry workflows',
+                'Compliance tools',
+                'Specialized data models',
+                'Industry reporting',
+                'Integration with industry systems'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Agency management tools', 'Client success tracking', 'Resource allocation'],
+          'e-commerce': ['Omnichannel customer view', 'Advanced segmentation', 'Lifetime value analysis'],
+          'education': ['Institutional advancement', 'Major donor tracking', 'Program management'],
+          'healthcare': ['Provider relationship management', 'Referral tracking', 'Patient journey mapping'],
+          'finance': ['Wealth management tools', 'Client portfolio tracking', 'Compliance documentation'],
+          'technology': ['Product usage analytics', 'Customer health scoring', 'Renewal management']
+        }
+      }
+    ],
+    automation: [
+      {
+        id: 'enterprise-automation',
+        name: 'Enterprise Automation Platform',
+        basePrice: 7999,
+        description: 'Comprehensive automation solution for business processes',
+        category: 'automation',
+        recommendedFor: ['small-business', 'enterprise'],
+        supportLevel: 'Enterprise SLA with Dedicated Support',
+        integrations: [
+          'ERP systems',
+          'CRM platforms',
+          'HR management',
+          'Finance systems',
+          'Custom enterprise applications'
+        ],
+        features: {
+          base: [
+            'Cross-platform Workflow Builder',
+            'Enterprise Process Automation',
+            'Custom Integration Framework',
+            'Business Rule Engine',
+            'Multi-environment Deployment',
+            'Audit Logging & Compliance',
+            'Role-based Access Control',
+            'Process Analytics Dashboard'
+          ],
+          addons: [
+            {
+              id: 'process-mining',
+              name: 'Process Mining & Optimization',
+              price: 5999,
+              description: 'Identify and optimize business processes',
+              features: [
+                'Process discovery',
+                'Bottleneck analysis',
+                'Compliance checking',
+                'Process simulation',
+                'Optimization recommendations'
+              ]
+            },
+            {
+              id: 'robotic-automation',
+              name: 'Robotic Process Automation',
+              price: 6999,
+              description: 'Software robots for repetitive tasks',
+              features: [
+                'Visual bot builder',
+                'Screen scraping',
+                'Task recording',
+                'Attended & unattended bots',
+                'OCR capabilities'
+              ]
+            },
+            {
+              id: 'decision-automation',
+              name: 'Intelligent Decision Automation',
+              price: 4999,
+              description: 'AI-powered decision making for processes',
+              features: [
+                'Decision modeling',
+                'Business rules management',
+                'Machine learning integration',
+                'Decision analytics',
+                'Scenario testing'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Agency operations', 'Resource management', 'Client workflow automation'],
+          'e-commerce': ['Order management', 'Supply chain automation', 'Customer service workflows'],
+          'education': ['Enrollment processes', 'Administrative automation', 'Learning delivery'],
+          'healthcare': ['Patient journey automation', 'Claims processing', 'Compliance workflows'],
+          'finance': ['Transaction processing', 'Regulatory reporting', 'Risk assessment automation'],
+          'technology': ['DevOps automation', 'Customer onboarding', 'Support ticket routing']
+        }
+      }
+    ],
+    api: [
+      {
+        id: 'enterprise-api-platform',
+        name: 'Enterprise API Management Platform',
+        basePrice: 9999,
+        description: 'Full lifecycle API management for enterprises',
+        category: 'api',
+        recommendedFor: ['small-business', 'enterprise'],
+        supportLevel: 'Enterprise Support with Dedicated Engineering',
+        integrations: [
+          'Legacy systems',
+          'Cloud services',
+          'Microservices',
+          'Data warehouses',
+          'Business applications'
+        ],
+        features: {
+          base: [
+            'API Lifecycle Management',
+            'Gateway Clustering & High Availability',
+            'Multi-datacenter Deployment',
+            'Advanced Security & Governance',
+            'Traffic Management & Throttling',
+            'Analytics & Business Insights',
+            'Monetization & Billing',
+            'Developer Ecosystem Tools'
+          ],
+          addons: [
+            {
+              id: 'full-lifecycle',
+              name: 'Full API Lifecycle Management',
+              price: 7999,
+              description: 'Design, build, test, and document APIs',
+              features: [
+                'API design tools',
+                'Automated testing',
+                'Version management',
+                'Deployment automation',
+                'Schema governance'
+              ]
+            },
+            {
+              id: 'api-security-suite',
+              name: 'API Security & Compliance Suite',
+              price: 8999,
+              description: 'Enterprise-grade API security',
+              features: [
+                'Advanced threat protection',
+                'Security analytics',
+                'Compliance frameworks',
+                'PII data protection',
+                'Vulnerability scanning'
+              ]
+            },
+            {
+              id: 'api-monetization',
+              name: 'API Monetization Platform',
+              price: 6999,
+              description: 'Monetize APIs with various business models',
+              features: [
+                'Usage-based billing',
+                'Subscription management',
+                'Revenue sharing',
+                'Payment processing',
+                'Partner management'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Agency API ecosystem', 'Client systems integration', 'Service delivery APIs'],
+          'e-commerce': ['Omnichannel API strategy', 'Marketplace integrations', 'Supply chain APIs'],
+          'education': ['Learning tools interoperability', 'Data exchange standards', 'Research APIs'],
+          'healthcare': ['FHIR implementation', 'Healthcare interoperability', 'Medical device integration'],
+          'finance': ['Open banking APIs', 'Financial data exchange', 'Regulatory reporting'],
+          'technology': ['Product APIs', 'Platform ecosystem', 'Partner integrations']
+        }
+      }
+    ],
+    monitoring: [
+      {
+        id: 'enterprise-monitoring',
+        name: 'Enterprise Monitoring & Alert System',
+        basePrice: 8999,
+        description: 'Comprehensive monitoring solution for enterprise systems',
+        category: 'monitoring',
+        recommendedFor: ['small-business', 'enterprise'],
+        supportLevel: '24/7 Enterprise Support with Incident Response',
+        integrations: [
+          'Enterprise systems',
+          'Cloud platforms',
+          'Network infrastructure',
+          'Business applications',
+          'IoT devices'
+        ],
+        features: {
+          base: [
+            'Unified Monitoring Dashboard',
+            'Multi-channel Alert System',
+            'SLA Management',
+            'Advanced Alert Correlation',
+            'Root Cause Analysis',
+            'Custom Metrics & KPIs',
+            'Incident Management Workflow',
+            'Executive Reporting'
+          ],
+          addons: [
+            {
+              id: 'aiops-platform',
+              name: 'AIOps Platform',
+              price: 7999,
+              description: 'AI-powered IT operations',
+              features: [
+                'Intelligent alert grouping',
+                'Automated incident triage',
+                'Predictive analytics',
+                'Anomaly detection',
+                'Service dependency mapping'
+              ]
+            },
+            {
+              id: 'business-impact',
+              name: 'Business Impact Analysis',
+              price: 5999,
+              description: 'Measure business impact of technical incidents',
+              features: [
+                'Service mapping',
+                'Financial impact assessment',
+                'Customer impact analysis',
+                'SLA impact tracking',
+                'Business continuity metrics'
+              ]
+            },
+            {
+              id: 'security-monitoring',
+              name: 'Advanced Security Monitoring',
+              price: 6999,
+              description: 'Security-focused monitoring and alerts',
+              features: [
+                'Threat detection',
+                'Security incident response',
+                'Compliance monitoring',
+                'Vulnerability alerts',
+                'Security analytics'
+              ]
+            }
+          ]
+        },
+        industryFeatures: {
+          'freelancer': ['Agency performance', 'Client SLA monitoring', 'Resource utilization'],
+          'e-commerce': ['Digital experience monitoring', 'Conversion funnel alerts', 'Supply chain visibility'],
+          'education': ['Learning platform monitoring', 'Student experience metrics', 'Administrative systems'],
+          'healthcare': ['Patient care monitoring', 'Clinical systems alerts', 'Regulatory compliance'],
+          'finance': ['Transaction monitoring', 'Trading systems', 'Regulatory reporting alerts'],
+          'technology': ['Platform reliability', 'Service performance', 'Customer experience monitoring']
+        }
+      }
+    ],
     security: [
       {
         id: 'business-security-suite',

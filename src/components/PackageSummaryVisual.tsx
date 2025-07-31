@@ -233,10 +233,10 @@ const PackageSummaryVisual: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             {selectedTechStack.map(tech => (
               <span 
-                key={tech}
+                key={tech.id}
                 className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm"
               >
-                {tech}
+                {tech.name}
               </span>
             ))}
           </div>

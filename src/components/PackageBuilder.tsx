@@ -193,10 +193,12 @@ function PackageBuilder() {
       selectedServiceData.features.addons.forEach(feature => {
         // If feature is just a string, convert to Feature object
         if (typeof feature === 'string') {
+          // Explicitly cast to string to avoid the 'never' type issue
+          const featureStr: string = feature;
           addonFeatures.push({
-            id: feature,
-            name: feature.replace(/-/g, ' '),
-            description: feature.replace(/-/g, ' ')
+            id: featureStr,
+            name: featureStr.replace(/-/g, ' '),
+            description: featureStr.replace(/-/g, ' ')
           });
         } else if (typeof feature === 'object' && feature !== null) {
           // Ensure it has at least an id and name

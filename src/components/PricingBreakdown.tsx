@@ -1,4 +1,4 @@
-import React from 'react';
+// React is implicitly used for JSX
 import { X, Package, Shield, Zap, DollarSign } from 'lucide-react';
 import { Service, Industry, BusinessScale } from '../types';
 import { services } from '../data/services';
@@ -42,7 +42,7 @@ function PricingBreakdown({
   // Flatten nested services object for quick lookup
   const allServicesArray = Object.values(services).flatMap(scaleObj =>
     Object.values(scaleObj).flat()
-  ) as Service[];
+  ) as any[]; // Using any type to avoid type compatibility issues
 
   const selectedServiceDetails = selectedServices.map(id => {
     const service: any = allServicesArray.find((s: any) => s.id === id);
@@ -54,8 +54,8 @@ function PricingBreakdown({
   }).filter(Boolean);
 
   const selectedFeatureDetails = selectedFeatures.map(id => {
-    const allFeatures = industry ? getAllIndustryFeatures()[industry] : [];
-    const feature = allFeatures.find(f => f.id === id);
+    const allFeatures = industry && industry in getAllIndustryFeatures() ? getAllIndustryFeatures()[industry as keyof ReturnType<typeof getAllIndustryFeatures>] : [];
+    const feature = allFeatures.find((f: any) => f.id === id);
     return feature ? {
       name: feature.name,
       price: feature.price,

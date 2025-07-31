@@ -1,0 +1,72 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches:
+      - production
+    paths:
+      - 'backend/**'
+
+jobs:
+  build_and_push:
+    name: Build and Push Backend Docker Image
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+        
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/service-tool-backend:latest
+          
+      - name: Setup Python for testing
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Run backend tests
+        run: |
+          cd backend
+          # Uncomment and configure when tests are available
+          # pytest -v
+
+  deploy:
+    name: Deploy to Cloud Run
+    needs: build_and_push
+    runs-on: ubuntu-latest
+    # Uncomment and update when ready to deploy to Cloud Run
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v3
+        
+    #   - name: Auth with Google Cloud
+    #     uses: google-github-actions/auth@v1
+    #     with:
+    #       credentials_json: ${{ secrets.GCP_SA_KEY }}
+          
+    #   - name: Deploy to Cloud Run
+    #     uses: google-github-actions/deploy-cloudrun@v1
+    #     with:
+    #       service: service-tool-backend
+    #       image: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/service-tool-backend:latest
+    #       region: us-central1
